@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title List Draft Pengadaan
+  body
+    h1 List Draft (Kaprodi)
+
+    table(border="1")
+      tr
+        th ID
+        th Tahun
+        th Pembuat
+        th Status
+
+      each d in drafts
+        tr
+          td= d.id
+          td= d.tahun
+          td= d.nama
+          td
+            if d.status == 'approved'
+                span(style="color:green") APPROVED
+            else if d.status == 'rejected'
+                span(style="color:red") REJECTED
+            else
+                span(style="color:orange") PENDING
+          td
+            a(href=`/draft/${d.id}`) Lihat Detail

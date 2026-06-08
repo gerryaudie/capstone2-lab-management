@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Detail Draft
+  body
+    h1 Detail Pengadaan
+
+    table(border="1")
+      tr
+        th Nama Barang
+        th Jenis
+        th Harga
+        th Jumlah
+        th Status
+        th Aksi
+
+      each item in items
+        tr
+          td= item.nama_barang
+          td= item.jenis
+          td= item.harga
+          td= item.jumlah
+          td= item.status
+          td
+            if item.status == 'pending'
+                a(href=`/approve/${item.id}`) Approve
+                |  |
+                a(href=`/reject/${item.id}`) Reject
+            else
+                span SUDAH DIPROSES
