@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+
+    title Sistem Lab Management
+
+    //- AdminLTE CSS
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css')
+
+  body.hold-transition.sidebar-mini
+
+    .wrapper
+
+      include ../partials/navbar
+      include ../partials/sidebar
+
+      // CONTENT
+      .content-wrapper
+        section.content
+          .container-fluid
+            block content
+
+      include ../partials/footer
+
+    // JS
+    script(src='https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js')

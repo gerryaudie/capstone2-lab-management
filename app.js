@@ -13,6 +13,10 @@ const app = express();
 
 const draftRoutes = require('./routes/draftRoutes');
 
+const dashboardRoutes = require('./routes/dashboardRoutes');
+
+app.use('/dashboard', dashboardRoutes);
+
 // ================= MIDDLEWARE =================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,6 +26,11 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
 
 // ================= VIEW ENGINE =================
 app.set('view engine', 'pug');

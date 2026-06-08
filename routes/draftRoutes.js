@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const role = require('../middleware/role');
 const db = require('../config/db');
 const auth = require('../middleware/auth');
 
@@ -27,15 +28,6 @@ router.get('/list', auth, (req, res) => {
     });
 });
 
-router.get('/:id', auth, (req, res) => {
-
-    const sql = "SELECT * FROM detail_pengadaan WHERE draft_id=?";
-
-    db.query(sql, [req.params.id], (err, results) => {
-        if (err) throw err;
-        res.render('draft/detail', { items: results });
-    });
-});
 
 router.get('/approve/:id', auth, (req, res) => {
 
@@ -81,5 +73,14 @@ router.get('/reject/:id', auth, (req, res) => {
     });
 });
 
-module.exports = router;
+router.get('/:id', auth, (req, res) => {
 
+    const sql = "SELECT * FROM detail_pengadaan WHERE draft_id=?";
+
+    db.query(sql, [req.params.id], (err, results) => {
+        if (err) throw err;
+        res.render('draft/detail', { items: results });
+    });
+});
+
+module.exports = router;
