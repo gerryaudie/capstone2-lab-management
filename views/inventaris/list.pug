@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Inventaris
+  body
+    h1 Data Inventaris
+
+    table(border="1")
+      tr
+        th Nama
+        th Status
+
+      each i in items
+        tr
+          td= i.nama
+          td= i.status

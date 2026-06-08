@@ -118,6 +118,16 @@ app.get('/draft/:id', auth, (req, res) => {
 });
 
 
+app.get('/inventaris', auth, (req, res) => {
+
+    const sql = "SELECT * FROM inventaris";
+
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.render('inventaris/list', { items: results });
+    });
+});
+
 
 
 app.get('/approve/:id', auth, (req, res) => {

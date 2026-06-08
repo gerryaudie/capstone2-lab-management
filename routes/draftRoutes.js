@@ -39,11 +39,35 @@ router.get('/:id', auth, (req, res) => {
 
 router.get('/approve/:id', auth, (req, res) => {
 
-    const sql = "UPDATE detail_pengadaan SET status='approved' WHERE id=?";
+    const id = req.params.id;
 
-    db.query(sql, [req.params.id], (err) => {
+    // 1. update status detail jadi approved
+    const sql1 = "UPDATE detail_pengadaan SET status='approved' WHERE id=?";
+
+    db.query(sql1, [id], (err) => {
         if (err) throw err;
-        res.redirect('/draft/list');
+
+        // 2. ambil data item yang di-approve
+        const sql2 = "SELECT * FROM detail_pengadaan WHERE id=?";
+
+        db.query(sql2, [id], (err2, results) => {
+            if (err2) throw err2;
+
+            const item = results[0];
+
+            // 3. INSERT ke inventaris
+            const sql3 = `
+                INSERT INTO inventaris
+                (nama, status)
+                VALUES (?, 'aktif')
+            `;
+
+            db.query(sql3, [item.nama_barang], (err3) => {
+                if (err3) throw err3;
+
+                res.redirect('/draft/list');
+            });
+        });
     });
 });
 
