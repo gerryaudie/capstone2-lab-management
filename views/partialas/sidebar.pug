@@ -1,0 +1,65 @@
+//- aside.main-sidebar.sidebar-dark-primary.elevation-4
+
+//-   a.brand-link(href='#')
+//-     span.brand-text Lab Management
+
+//-   .sidebar
+//-     nav.mt-2
+//-       ul.nav.nav-pills.nav-sidebar.flex-column
+
+//-         li.nav-item
+//-           a.nav-link(href='/inventaris')
+//-             i.nav-icon.fas.fa-box
+//-             p Inventaris
+
+//-         li.nav-item
+//-           a.nav-link(href='/draft')
+//-             i.nav-icon.fas.fa-file
+//-             p Draft
+
+aside.main-sidebar.sidebar-dark-primary
+
+  .sidebar
+
+    nav.mt-2
+      ul.nav.nav-pills.nav-sidebar.flex-column
+
+        // ADMIN
+        if user.role == 'administrator'
+          li.nav-item
+            a.nav-link(href='/users')
+              i.nav-icon.fas.fa-users
+              p Manajemen User
+
+          li.nav-item
+            a.nav-link(href='/ruangan')
+              i.nav-icon.fas.fa-building
+              p Ruangan
+
+        // KEPALA LAB
+        if user.role == 'kepala_laboratorium'
+          li.nav-item
+            a.nav-link(href='/draft')
+              i.nav-icon.fas.fa-file
+              p Draft Pengadaan
+
+        // KAPRODI
+        if user.role == 'ketua_program_studi'
+          li.nav-item
+            a.nav-link(href='/draft/review')
+              i.nav-icon.fas.fa-check
+              p Review Draft
+
+        // STAF ADMIN
+        if user.role == 'staf_administrasi'
+          li.nav-item
+            a.nav-link(href='/inventaris')
+              i.nav-icon.fas.fa-box
+              p Inventaris
+
+        // STAF LAB
+        if user.role == 'staf_laboratorium'
+          li.nav-item
+            a.nav-link(href='/bhp')
+              i.nav-icon.fas.fa-flask
+              p BHP & Maintenance

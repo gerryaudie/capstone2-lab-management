@@ -12,6 +12,15 @@ const auth = require('./middleware/auth');
 
 const app = express();
 
+<<<<<<< HEAD
+=======
+const draftRoutes = require('./routes/draftRoutes');
+
+const dashboardRoutes = require('./routes/dashboardRoutes');
+
+app.use('/dashboard', dashboardRoutes);
+
+>>>>>>> 5814b9789aaddaede03b6d5d97ea87ab2ad5781b
 // ================= MIDDLEWARE =================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -21,6 +30,11 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
 
 // ================= VIEW ENGINE =================
 app.set('view engine', 'pug');
