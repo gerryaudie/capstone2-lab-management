@@ -8,9 +8,11 @@ html
     table(border="1")
       tr
         th Nama
+        th Jumlah
         th Status
 
       each i in items
         tr
           td= i.nama
+          td= i.jumlah
           td= i.status

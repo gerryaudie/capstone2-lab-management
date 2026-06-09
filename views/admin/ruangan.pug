@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  h3 Kelola Ruangan
+
+  a.btn.btn-primary.mb-3(href="/admin/ruangan/create") + Tambah Ruangan
+
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th ID
+        th Nama Ruangan
+        th Kode
+        th Lokasi
+        th Aksi
+
+    tbody
+      each r in ruangan
+        tr
+          td= r.id
+          td= r.nama_ruangan
+          td= r.kode_ruangan
+          td= r.lokasi
+          td
+            a.btn.btn-danger.btn-sm(href="/admin/ruangan/delete/" + r.id) Hapus

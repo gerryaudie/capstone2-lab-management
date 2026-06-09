@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  h3 Dashboard Staf Administrasi
+
+  .row.mt-4
+
+    .col-md-4
+      .card.text-bg-primary.shadow
+        .card-body
+          h5 Barang Masuk Hari Ini
+          h2 15
+
+    .col-md-4
+      .card.text-bg-success.shadow
+        .card-body
+          h5 Inventaris Terinput
+          h2 120
+
+    .col-md-4
+      .card.text-bg-warning.shadow
+        .card-body
+          h5 QR Code Dibuat
+          h2 60
+
+  hr
+
+  h5 Menu Staf Admin
+
+  .mt-3
+    a.btn.btn-dark.me-2(href="/inventaris") Input Inventaris
+    a.btn.btn-dark.me-2(href="/inventaris") Generate QR Code
+    a.btn.btn-dark.me-2(href="/upload") Upload Foto Barang

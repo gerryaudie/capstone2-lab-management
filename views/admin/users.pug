@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  h3 Kelola User
+
+  a.btn.btn-primary.mb-3(href="/admin/users/create") + Tambah User
+
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th ID
+        th Nama
+        th Email
+        th Role
+        th Aksi
+
+    tbody
+      each user in users
+        tr
+          td= user.id
+          td= user.nama
+          td= user.email
+          td= user.role
+          td
+            a.btn.btn-danger.btn-sm(href="/admin/users/delete/" + user.id) Hapus

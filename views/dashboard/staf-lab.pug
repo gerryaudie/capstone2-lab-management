@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  h3 Dashboard Staf Laboratorium
+
+  .row.mt-4
+
+    .col-md-4
+      .card.text-bg-primary.shadow
+        .card-body
+          h5 Maintenance Hari Ini
+          h2 3
+
+    .col-md-4
+      .card.text-bg-warning.shadow
+        .card-body
+          h5 Barang Rusak
+          h2 7
+
+    .col-md-4
+      .card.text-bg-success.shadow
+        .card-body
+          h5 BHP Terpakai
+          h2 20
+
+  hr
+
+  h5 Menu Staf Laboratorium
+
+  .mt-3
+    a.btn.btn-dark.me-2(href="/inventaris") Lihat Inventaris
+    a.btn.btn-dark.me-2(href="/maintenance") Input Maintenance
+    a.btn.btn-dark.me-2(href="/bhp") Kelola BHP

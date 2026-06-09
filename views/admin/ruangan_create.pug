@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h3 Tambah Ruangan
+
+  form(method="POST" action="/admin/ruangan/create")
+
+    .mb-3
+      label Nama Ruangan
+      input.form-control(type="text" name="nama_ruangan" required)
+
+    .mb-3
+      label Kode Ruangan
+      input.form-control(type="text" name="kode_ruangan" required)
+
+    .mb-3
+      label Lokasi
+      input.form-control(type="text" name="lokasi" required)
+
+    button.btn.btn-success(type="submit") Simpan

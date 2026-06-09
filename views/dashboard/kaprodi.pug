@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  h3 Dashboard Kaprodi
+
+  .row.mt-4
+
+    .col-md-4
+      .card.text-bg-primary.shadow
+        .card-body
+          h5 Total Inventaris
+          h2= total
+
+    .col-md-4
+      .card.text-bg-success.shadow
+        .card-body
+          h5 Barang Ready
+          h2= ready
+
+    .col-md-4
+      .card.text-bg-danger.shadow
+        .card-body
+          h5 Barang Rusak
+          h2= rusak
+
+  hr
+
+  h5 Menu Cepat
+
+  a.btn.btn-dark.me-2(href="/inventaris") Inventaris
+  a.btn.btn-dark.me-2(href="/draft/list") Draft Pengadaan

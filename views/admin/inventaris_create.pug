@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+  h3 Tambah Inventaris
+
+  form(method="POST" action="/admin/inventaris/create")
+
+    .mb-3
+      label Nama
+      input.form-control(type="text" name="nama" required)
+
+    .mb-3
+      label Label
+      input.form-control(type="text" name="label" required)
+
+    .mb-3
+      label Ruangan
+      select.form-control(name="room_id")
+        each r in rooms
+          option(value=r.id)= r.nama_ruangan
+
+    .mb-3
+      label Tanggal Terima
+      input.form-control(type="date" name="tanggal_terima")
+
+    .mb-3
+      label Kondisi
+      select.form-control(name="kondisi")
+        option(value="baik") Baik
+        option(value="rusak") Rusak
+        option(value="perbaikan") Perbaikan
+
+    .mb-3
+      label Status
+      select.form-control(name="status")
+        option(value="aktif") Aktif
+        option(value="nonaktif") Nonaktif
+
+    button.btn.btn-success(type="submit") Simpan

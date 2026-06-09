@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  h3 Tambah User
+
+  form(method="POST" action="/admin/users/create")
+
+    .mb-3
+      label Nama
+      input.form-control(type="text" name="nama" required)
+
+    .mb-3
+      label Email
+      input.form-control(type="email" name="email" required)
+
+    .mb-3
+      label Password
+      input.form-control(type="password" name="password" required)
+
+    .mb-3
+      label Role
+      select.form-control(name="role" required)
+        option(value="administrator") Administrator
+        option(value="kepala_lab") Kepala Lab
+        option(value="kaprodi") Kaprodi
+        option(value="staf_administrasi") Staf Admin
+        option(value="staf_laboratorium") Staf Lab
+
+    button.btn.btn-success(type="submit") Simpan

@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  h3 Kelola Inventaris
+
+  a.btn.btn-primary.mb-3(href="/admin/inventaris/create") + Tambah Inventaris
+
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th ID
+        th Nama
+        th Label
+        th Ruangan
+        th Tanggal Terima
+        th Kondisi
+        th Status
+        th Aksi
+
+    tbody
+      each item in items
+        tr
+          td= item.id
+          td= item.nama
+          td= item.label
+          td= item.nama_ruangan
+          td= item.tanggal_terima
+          td= item.kondisi
+          td= item.status
+          td
+            a.btn.btn-danger.btn-sm(href="/admin/inventaris/delete/" + item.id) Hapus

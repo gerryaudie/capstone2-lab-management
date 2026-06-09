@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  h3 Dashboard Administrator
+
+  p.text-muted Selamat datang di panel admin sistem laboratorium
+
+  .row.mt-4
+
+    .col-md-4
+      .card.shadow.border-0
+        .card-body
+          h5 Kelola User
+          p Manajemen akun pengguna (admin, kaprodi, staf)
+          a.btn.btn-primary.btn-sm(href="/admin/users") Buka Modul
+
+    .col-md-4
+      .card.shadow.border-0
+        .card-body
+          h5 Kelola Ruangan
+          p Data ruangan laboratorium
+          a.btn.btn-success.btn-sm(href="/admin/ruangan") Buka Modul
+
+    .col-md-4
+      .card.shadow.border-0
+        .card-body
+          h5 Kelola Inventaris
+          p Manajemen barang & aset lab
+          a.btn.btn-warning.btn-sm(href="/admin/inventaris") Buka Modul

@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  h3 Dashboard Kepala Lab
+
+  .row.mt-4
+
+    .col-md-4
+      .card.text-bg-primary.shadow
+        .card-body
+          h5 Total Inventaris
+          h2 120
+
+    .col-md-4
+      .card.text-bg-success.shadow
+        .card-body
+          h5 Draft Pengadaan
+          h2 8
+
+    .col-md-4
+      .card.text-bg-warning.shadow
+        .card-body
+          h5 Menunggu Approval
+          h2 5
+
+  hr
+
+  h5 Menu Cepat
+
+  a.btn.btn-dark.me-2(href="/draft") Buat Draft
+  a.btn.btn-dark.me-2(href="/draft/list") Lihat Draft
